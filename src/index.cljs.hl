@@ -4,7 +4,11 @@
 
 (reload-all 1000)
 
+
+(defc clicks 0)
+
 (html
   (head)
-  (body
-    (h1 "Hello, World!")))
+    (body
+        (text "Clicks so far: ~{clicks} ")
+            (button :on-click #(swap! clicks inc) "click me!")))
