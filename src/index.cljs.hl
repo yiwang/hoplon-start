@@ -1,14 +1,11 @@
-(page "index.html"
-  (:require
-    [tailrecursion.hoplon.reload :refer [reload-all]]))
+(page "index.html")
 
-(reload-all 1000)
-
-
-(defc clicks 0)
+(defc things ["one" "two" "three"])
 
 (html
-  (head)
-    (body
-        (text "Clicks so far: ~{clicks} ")
-            (button :on-click #(swap! clicks inc) "click me!")))
+  (head
+    (link :href "css/bootstrap.css" :rel "stylesheet"))
+  (body
+    (ul
+      (loop-tpl :bindings [x things]
+        (li x)))))
