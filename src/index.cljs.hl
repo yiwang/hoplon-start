@@ -1,11 +1,20 @@
-(page "index.html")
-
-(defc things ["one" "two" "three"])
+(page "index.html"
+  (:require [ui.tabs :as tabs]))
 
 (html
   (head
-    (link :href "css/bootstrap.css" :rel "stylesheet"))
+    (link :rel "stylesheet" :href "css/bootstrap.css"))
   (body
-    (ul
-      (loop-tpl :bindings [x things]
-        (li x)))))
+    (tabs/tabs
+      (span "Zero")
+      (div
+        (h4 "Foo")
+        (p "Content for tab 0."))
+      (span "One")
+      (div
+        (h4 "Bar")
+        (p "Content for tab 1."))
+      (span "Two")
+      (div
+        (h4 "Baz")
+        (p "Content for tab 2.")))))
